@@ -10,6 +10,11 @@ connect_str = "DefaultEndpointsProtocol=https;AccountName=3dptv001;AccountKey=fs
 # Blob Service Client Object
 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
 
+@app.route('/')
+def index():
+    print ('Home')
+
+    
 @app.route('/upload', methods=['POST'])
 def upload_file():
     container_client = blob_service_client.get_container_client('input-container/unprocessed_dataset')
